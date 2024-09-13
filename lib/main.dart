@@ -1,3 +1,6 @@
+import 'package:chatappfr/Feature/Home/presentation/view/home_view.dart';
+import 'package:chatappfr/Feature/auth/presentation/view/login_view.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
@@ -14,11 +17,15 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Center(
-          child: Container(
-        height: 100,
-        color: Colors.red,
-      )),
-    );
+        home: StreamBuilder(
+      stream: FirebaseAuth.instance.authStateChanges(),
+      builder: (context, snapshot) {
+        if (snapshot.hasData) {
+          return const HomeScreen();
+        } else {
+          return const LoginScreen();
+        }
+      },
+    ));
   }
 }

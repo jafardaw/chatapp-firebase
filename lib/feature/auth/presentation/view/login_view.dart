@@ -1,6 +1,12 @@
+import 'package:chatappfr/Feature/Home/presentation/view/home_view.dart';
+import 'package:chatappfr/Feature/auth/presentation/manger/services/auth_services.dart';
+import 'package:chatappfr/Feature/auth/presentation/manger/services/login_with_google.dart';
+import 'package:chatappfr/Feature/auth/presentation/view/forget_password.dart';
+import 'package:chatappfr/Feature/auth/presentation/view/phone_auth.dart';
 import 'package:chatappfr/core/function/custom_show_snack_bar.dart';
+import 'package:chatappfr/core/widget/custom_botton.dart';
 import 'package:chatappfr/core/widget/custom_text_field.dart';
-import 'package:chatappfr/feature/auth/presentation/view/regs_view.dart';
+import 'package:chatappfr/Feature/auth/presentation/view/regs_view.dart';
 import 'package:flutter/material.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -27,7 +33,6 @@ class _SignupScreenState extends State<LoginScreen> {
     setState(() {
       isLoading = true;
     });
-    // signup user using our authmethod
     String res = await AuthMethod().loginUser(
         email: emailController.text, password: passwordController.text);
 
@@ -79,7 +84,7 @@ class _SignupScreenState extends State<LoginScreen> {
             ),
             //  we call our forgot password below the login in button
             const ForgotPassword(),
-            MyButtons(onTap: loginUser, text: "Log In"),
+            CustomButton(onTap: loginUser, text: "Log In"),
 
             Row(
               children: [

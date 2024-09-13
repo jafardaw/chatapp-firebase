@@ -1,5 +1,6 @@
-import 'package:cahtapp/core/function/linear_gradian.dart';
-import 'package:cahtapp/core/util/styels.dart';
+
+import 'package:chatappfr/core/function/linear_gradian.dart';
+import 'package:chatappfr/core/util/styels.dart';
 import 'package:flutter/material.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
